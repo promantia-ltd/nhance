@@ -3,14 +3,20 @@ from __future__ import unicode_literals
 from . import __version__ as app_version
 
 app_name = "nhance"
-app_title = "nhance"
-app_publisher = "veena.h@promantia.com"
-app_description = "nhance"
+app_title = "Nhance"
+app_publisher = "Epoch"
+app_description = "Nhance"
 app_icon = "octicon octicon-file-directory"
 app_color = "grey"
-app_email = "veena.h@promantia.com"
+app_email = "support@epochconsulting.in"
 app_license = "MIT"
 
+doc_events = {
+	"Sales Order Review":{
+		"before_save":"nhance.nhance.doctype.sales_order_review.sales_order_review.get_check_box_cheched",
+		"on_submit":"nhance.nhance.doctype.sales_order_review.sales_order_review.get_check_box_cheched"
+	}
+}
 # Includes in <head>
 # ------------------
 
@@ -22,22 +28,6 @@ app_license = "MIT"
 # web_include_css = "/assets/nhance/css/nhance.css"
 # web_include_js = "/assets/nhance/js/nhance.js"
 
-# include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "nhance/public/scss/website"
-
-# include js, css files in header of web form
-# webform_include_js = {"doctype": "public/js/doctype.js"}
-# webform_include_css = {"doctype": "public/css/doctype.css"}
-
-# include js in page
-# page_js = {"page" : "public/js/file.js"}
-
-# include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
 # Home Pages
 # ----------
 
@@ -48,6 +38,9 @@ app_license = "MIT"
 # role_home_page = {
 #	"Role": "home_page"
 # }
+
+# Website user home page (by function)
+# get_website_user_home_page = "nhance.utils.get_home_page"
 
 # Generators
 # ----------
@@ -77,14 +70,6 @@ app_license = "MIT"
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
-
-# DocType Class
-# ---------------
-# Override standard doctype classes
-
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
 # Document Events
@@ -120,26 +105,34 @@ app_license = "MIT"
 # 	]
 # }
 
+
+# Scheduled Tasks
+# ---------------
+
+#at 8am in morning*********************
+
+scheduler_events = {
+
+ 	"cron": {
+        
+        "10 8 * * *": [
+            "nhance.api.getPoData"
+        ]
+    }
+
+}
+
+#at 8am in morning*********************
+
 # Testing
 # -------
 
 # before_tests = "nhance.install.before_tests"
 
-# Overriding Methods
+# Overriding Whitelisted Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "nhance.event.get_events"
-# }
-#
-# each overriding function accepts a `data` argument;
-# generated from the base implementation of the doctype dashboard,
-# along with any modifications made in other Frappe apps
-# override_doctype_dashboards = {
-# 	"Task": "nhance.task.get_dashboard_data"
-# }
-
-# exempt linked doctypes from being automatically cancelled
-#
-# auto_cancel_exempted_doctypes = ["Auto Repeat"]
+#override_whitelisted_methods = {
+# 	"erpnext.crm.doctype.opportunity.opportunity.make_quotation": "nhance.nhance.api.make_opp_quotation"
+#}
 
