@@ -317,7 +317,7 @@ def making_PurchaseOrder_For_SupplierItems(args, company, tax_template, srID):
 
 
 	i = 0
-	if tax_template is not None and tax_template is not "":
+	if tax_template!= None and tax_template is not "":
 		tax_Name = frappe.get_doc("Purchase Taxes and Charges Template", tax_template)
 		for taxes in tax_Name.taxes:
 			account_Name = taxes.account_head

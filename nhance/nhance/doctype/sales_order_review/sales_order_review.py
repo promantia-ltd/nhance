@@ -1132,7 +1132,7 @@ def check_item_review_field(current_doc,review_doc,name):
 							if doc[str(accept_field)] == 1:
 								pass
 							elif doc[str(reject_field)] == 1:
-								if doc[str(propose_new)] is not None and doc[str(propose_new)] is not 0 and doc[str(propose_new)] is not 0.0:
+								if doc[str(propose_new)]!= None and doc[str(propose_new)] is not 0 and doc[str(propose_new)] is not 0.0:
 									pass
 								else:
 									frappe.throw("Please specify value in proposed new value field called "+frappe.bold(propose_new))
