@@ -9,9 +9,11 @@ from erpnext.stock.stock_balance import get_balance_qty_from_sle
 from datetime import datetime
 import time
 import math
+#reload(sys)
+import importlib
 import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+importlib.reload(sys)
+#sys.setdefaultencoding('utf-8')
 
 def execute(filters=None):
 	global hidden_bom_list
