@@ -9,9 +9,6 @@ from erpnext.stock.stock_balance import get_balance_qty_from_sle
 from datetime import datetime
 import time
 import math
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 def execute(filters=None):
     data = []
@@ -150,18 +147,12 @@ def get_whse_stock_uom(bi_item):
 		return None
 
 def get_columns():
-	"""return columns"""
-	columns = [
-	_("BOM")+":100",
-	_("-")+":100",
-	_("--")+"::100",
-	_("---")+"::140",
-	_("----")+"::100",
-	_("-----")+"::100",
-	_("------")+"::100",
-	_("-------")+"::100",
-	_("--------")+"::100",
-	_("---------")+"::100",
-	_("----------")+"::100",
-	_("-----------")+"::100"]
-	return columns
+    """return columns"""
+    columns = [
+        _("BOM") + ":100",
+        _("-") + ":140",
+        _("--") + "::100",
+        _("---") + "::140",
+        _("----") + "::100"
+    ]
+    return columns
