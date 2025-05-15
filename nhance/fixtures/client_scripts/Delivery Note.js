@@ -224,14 +224,6 @@ frappe.ui.form.on("Delivery Note", "after_save", function(frm, cdt, cdn) {
 	var HasBatchNumber = null;
         HasBatchNumber = fetch_has_batch_no(item_code);
         //console.log("HasBatchNumber", HasBatchNumber);
-	if(HasSerialNumber == 1 ||HasBatchNumber==1){
-        //console.log("item has batch or serial number make feild mandondatory");
-   	cur_frm.fields_dict.items.grid.toggle_reqd("revision_number", true)
-        }
-	else{
-	console.log("item has no  batch or no serial number don't make feild mandondatory");
-
-}//end of else
     }//end of for loop
 });
 
